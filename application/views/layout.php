@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="icon" href="<?php echo base_url("images/favicon.ico"); ?>" type="image/ico" />
 
-    <title>MAESTRO </title>
+    <title>ZAZUE </title>
 
     <!-- Bootstrap -->
 	<link href="<?php echo base_url("assets/bootstrap/vendors/bootstrap/dist/css/bootstrap.min.css"); ?>" rel="stylesheet">
