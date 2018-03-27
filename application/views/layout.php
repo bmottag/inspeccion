@@ -28,6 +28,13 @@
 
     <!-- Custom Theme Style -->
 	<link href="<?php echo base_url("assets/bootstrap/build/css/custom.min.css"); ?>" rel="stylesheet">
+	
+    <!-- jQuery -->
+	<script src="<?php echo base_url("assets/bootstrap/vendors/jquery/dist/jquery.min.js"); ?>"></script>
+	<!-- jQuery validate-->
+	<script type="text/javascript" src="<?php echo base_url("assets/js/general/general.js"); ?>"></script>
+	<script type="text/javascript" src="<?php echo base_url("assets/js/general/jquery.validate.js"); ?>"></script>
+	
   </head>
 
   <body class="nav-md">
@@ -61,8 +68,6 @@
       </div>
     </div>
 
-    <!-- jQuery -->
-	<script src="<?php echo base_url("assets/bootstrap/vendors/jquery/dist/jquery.min.js"); ?>"></script>
     <!-- Bootstrap -->
 	<script src="<?php echo base_url("assets/bootstrap/vendors/bootstrap/dist/js/bootstrap.min.js"); ?>"></script>
     <!-- FastClick -->
