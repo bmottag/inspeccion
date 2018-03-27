@@ -8,6 +8,7 @@ $( document ).ready( function () {
 		rules: {
 			nombres:			{ required: true, minlength: 3, maxlength:25 },
 			apellidos: 			{ required: true, minlength: 3, maxlength:25 },
+			usuario: 			{ required: true, minlength: 5, maxlength:25 },
 			email: 				{ required: true, email: true, maxlength:50 },
 			celular:	 		{ required: true, number: true, maxlength:12 }
 		},
@@ -62,7 +63,7 @@ $( document ).ready( function () {
 						{	                                                        
 							$("#div_load").css("display", "none");
 							$('#btnSubmit').removeAttr('disabled');
-							var url = base_url + "admin/clientes";
+							var url = base_url + "admin/add_cliente";
 							$(location).attr("href", url);
 						}
 						else

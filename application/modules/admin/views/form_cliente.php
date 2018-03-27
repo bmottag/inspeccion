@@ -15,6 +15,7 @@
 				<div class="x_content">
 				<br />
 					<form id="form" data-parsley-validate class="form-horizontal form-label-left">
+						<input type="hidden" id="hddId" name="hddId" value="<?php echo $information?$information[0]["id_user"]:""; ?>"/>
 
 						<div class="form-group">
 							<label class="control-label col-md-3 col-sm-3 col-xs-12" for="nombres">Nombres <span class="required">*</span>
@@ -28,6 +29,13 @@
 							</label>
 							<div class="col-md-6 col-sm-6 col-xs-12">
 								<input type="text" id="apellidos" name="apellidos" required="required" class="form-control col-md-7 col-xs-12" maxlength=30 placeholder="Apellidos">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-md-3 col-sm-3 col-xs-12" for="usuario">Usuario <span class="required">*</span>
+							</label>
+							<div class="col-md-6 col-sm-6 col-xs-12">
+								<input type="text" id="usuario" name="usuario" required="required" class="form-control col-md-7 col-xs-12" maxlength=30 placeholder="Usuario">
 							</div>
 						</div>
 						<div class="form-group">
