@@ -6,11 +6,14 @@
 		/**
 		 * Verify if the user already exist by the social insurance number
 		 * @author BMOTTAG
-		 * @since  8/11/2016
-		 * @review 27/11/2016
+		 * @since  27/3/2018
 		 */
 		public function verifyUser($arrData) 
 		{
+				if (array_key_exists("idUser", $arrData)) {
+					$this->db->where('id_user !=', $arrData["idUser"]);
+				}			
+
 				$this->db->where($arrData["column"], $arrData["value"]);
 				$query = $this->db->get("user");
 
@@ -20,30 +23,33 @@
 		}
 		
 		/**
-		 * Add/Edit USER
-		 * @since 8/11/2016
+		 * Add/Edit CLIENTE
+		 * @since 27/3/2018
 		 */
-		public function saveEmployee() 
+		public function saveCliente() 
 		{
 				$idUser = $this->input->post('hddId');
+				$email = $this->input->post('email');
+				//sacar del correo el logUser
+				$email = strtolower($email);
+				$parts = explode('@', $email);
+				$logUser = $parts[0];
 				
 				$data = array(
-					'first_name' => $this->input->post('firstName'),
-					'last_name' => $this->input->post('lastName'),
-					'log_user' => $this->input->post('user'),
-					'social_insurance' => $this->input->post('insuranceNumber'),
-					'health_number' => $this->input->post('healthNumber'),
-					'birthdate' => $this->input->post('birth'),
-					'movil' => $this->input->post('movilNumber'),
-					'email' => $this->input->post('email'),
-					'address' => $this->input->post('address'),
-					'perfil' => $this->input->post('perfil')
+					'first_name' => $this->input->post('nombres'),
+					'last_name' => $this->input->post('apellidos'),
+					'log_user' => $logUser,
+					'email' => $email,
+					'movil' => $this->input->post('celular'),
 				);	
 
 				//revisar si es para adicionar o editar
 				if ($idUser == '') {
-					$data['state'] = 0;//si es para adicionar se coloca estado inicial como usuario nuevo
+					$data['fk_id_rol'] = 4;//cliente
+					$data['birthdate'] = date("Y-m-d");
+					$data['state'] = 1;
 					$data['password'] = 'e10adc3949ba59abbe56e057f20f883e';//123456
+					$data['address'] = '';
 					$query = $this->db->insert('user', $data);
 				} else {
 					$data['state'] = $this->input->post('state');
