@@ -30,16 +30,12 @@
 		{
 				$idUser = $this->input->post('hddId');
 				$email = $this->input->post('email');
-				//sacar del correo el logUser
-				$email = strtolower($email);
-				$parts = explode('@', $email);
-				$logUser = $parts[0];
 				
 				$data = array(
 					'first_name' => $this->input->post('nombres'),
 					'last_name' => $this->input->post('apellidos'),
-					'log_user' => $logUser,
-					'email' => $email,
+					'log_user' => $this->input->post('usuario'),
+					'email' => $this->input->post('email'),
 					'movil' => $this->input->post('celular'),
 				);	
 
@@ -51,13 +47,13 @@
 					$data['password'] = 'e10adc3949ba59abbe56e057f20f883e';//123456
 					$data['address'] = '';
 					$query = $this->db->insert('user', $data);
+					$idUser = $this->db->insert_id();
 				} else {
-					$data['state'] = $this->input->post('state');
 					$this->db->where('id_user', $idUser);
 					$query = $this->db->update('user', $data);
 				}
 				if ($query) {
-					return true;
+					return $idUser;
 				} else {
 					return false;
 				}

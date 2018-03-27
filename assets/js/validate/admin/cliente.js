@@ -55,7 +55,6 @@ $( document ).ready( function () {
 							$("#div_error").css("display", "inline");
 							$("#span_msj").html(data.mensaje);
 							$('#btnSubmit').removeAttr('disabled');							
-							alert(data.mensaje);
 							return false;
 						} 
 
@@ -63,7 +62,7 @@ $( document ).ready( function () {
 						{	                                                        
 							$("#div_load").css("display", "none");
 							$('#btnSubmit').removeAttr('disabled');
-							var url = base_url + "admin/add_cliente";
+							var url = base_url + "admin/add_cliente/" + data.idRecord;
 							$(location).attr("href", url);
 						}
 						else

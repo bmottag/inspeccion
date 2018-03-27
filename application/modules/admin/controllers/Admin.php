@@ -33,11 +33,10 @@ class Admin extends CI_Controller {
 	{			
 		$this->load->model("general_model");
 		$data['information'] = FALSE;
-		$data["idCliente"] = $idCliente;
 
 		//si envio el id, entonces busco la informacion 
 		if ($idCliente != 'x') {
-			$arrParam = array("idCliente" => $idCliente);
+			$arrParam = array("idUser" => $idCliente);
 			$data['information'] = $this->general_model->get_user_list($arrParam);//info cliente
 		}
 
@@ -72,26 +71,23 @@ class Admin extends CI_Controller {
 			);
 			$result_user = $this->admin_model->verifyUser($arrParam);
 
-			
+//echo $this->db->last_query(); exit;
 			
 			if ($result_user) {
 				$data["result"] = "error";
 				if($result_user){
-					$this->session->set_flashdata('retornoError', '<strong>Error!!!</strong> El usuario ya existe.');
-				}
-				if($result_insurance){
-					$this->session->set_flashdata('retornoError', '<strong>Error!!!</strong> The user already exist by the social insurance number.');
-				}
-				if($result_user && $result_insurance){
-					$this->session->set_flashdata('retornoError', '<strong>Error!!!</strong> The user already exist by the user name and the social insurance number.');
+					$data["mensaje"] = " Error. El nombre de usuario ya existe.";
+					$this->session->set_flashdata('retornoError', '<strong>Error!!!</strong> El nombre de usuario ya existe.');
 				}
 			} else {
 			
-				if ($this->admin_model->saveCliente()) {
+				if ($idUser = $this->admin_model->saveCliente()) {
 					$data["result"] = true;
+					$data["idRecord"] = $idUser;
 					$this->session->set_flashdata('retornoExito', $msj);
 				} else {
 					$data["result"] = "error";
+					$data["idRecord"] = '';
 					$this->session->set_flashdata('retornoError', '<strong>Error!!!</strong> Contactarse con el Administrador.');
 				}
 			

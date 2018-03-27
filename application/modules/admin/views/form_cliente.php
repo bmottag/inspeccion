@@ -21,33 +21,33 @@
 							<label class="control-label col-md-3 col-sm-3 col-xs-12" for="nombres">Nombres <span class="required">*</span>
 							</label>
 							<div class="col-md-6 col-sm-6 col-xs-12">
-								<input type="text" id="nombres" name="nombres" required="required" class="form-control col-md-7 col-xs-12" maxlength=30 placeholder="Nombres">
+								<input type="text" id="nombres" name="nombres" required="required" class="form-control col-md-7 col-xs-12" value="<?php echo $information?$information[0]["first_name"]:""; ?>" maxlength=30 placeholder="Nombres">
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="control-label col-md-3 col-sm-3 col-xs-12" for="apellidos">Apellidos <span class="required">*</span>
 							</label>
 							<div class="col-md-6 col-sm-6 col-xs-12">
-								<input type="text" id="apellidos" name="apellidos" required="required" class="form-control col-md-7 col-xs-12" maxlength=30 placeholder="Apellidos">
+								<input type="text" id="apellidos" name="apellidos" required="required" class="form-control col-md-7 col-xs-12" value="<?php echo $information?$information[0]["last_name"]:""; ?>" maxlength=30 placeholder="Apellidos">
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="control-label col-md-3 col-sm-3 col-xs-12" for="usuario">Usuario <span class="required">*</span>
 							</label>
 							<div class="col-md-6 col-sm-6 col-xs-12">
-								<input type="text" id="usuario" name="usuario" required="required" class="form-control col-md-7 col-xs-12" maxlength=30 placeholder="Usuario">
+								<input type="text" id="usuario" name="usuario" required="required" class="form-control col-md-7 col-xs-12" value="<?php echo $information?$information[0]["log_user"]:""; ?>" maxlength=30 placeholder="Usuario">
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="email" class="control-label col-md-3 col-sm-3 col-xs-12">Email <span class="required">*</span></label>
 							<div class="col-md-6 col-sm-6 col-xs-12">
-								<input id="email" name="email" class="form-control col-md-7 col-xs-12" type="text" maxlength=50 placeholder="Email">
+								<input id="email" name="email" class="form-control col-md-7 col-xs-12" type="text" value="<?php echo $information?$information[0]["email"]:""; ?>" maxlength=50 placeholder="Email">
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="celular" class="control-label col-md-3 col-sm-3 col-xs-12">No. Celular <span class="required">*</span></label>
 							<div class="col-md-6 col-sm-6 col-xs-12">
-								<input id="celular" name="celular" class="form-control col-md-7 col-xs-12" type="text" maxlength=12 placeholder="No. Celular">
+								<input id="celular" name="celular" class="form-control col-md-7 col-xs-12" type="text" value="<?php echo $information?$information[0]["movil"]:""; ?>" maxlength=12 placeholder="No. Celular">
 							</div>
 						</div>
 
@@ -75,7 +75,7 @@
 									</div>
 								</div>
 								<div id="div_error" style="display:none">			
-									<div class="alert alert-danger"><span class="glyphicon glyphicon-remove" id="span_msj">&nbsp;</span></div>
+									<div class="alert alert-danger"><span class="glyphicon glyphicon-remove" id="span_msj"> &nbsp;</span></div>
 								</div>	
 								
 							</div>
