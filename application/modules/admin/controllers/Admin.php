@@ -54,6 +54,7 @@ class Admin extends CI_Controller {
 			
 			$idUser = $this->input->post('hddId');
 			$log_user = $this->input->post('usuario');
+			$email = $this->input->post('email');
 
 			$msj = "Se adicionó el Cliente con éxito.";
 			if ($idUser != '') {
@@ -62,6 +63,7 @@ class Admin extends CI_Controller {
 			
 			
 			$result_user = false;
+			$result_email = false;
 
 			//verificar si ya existe el usuario
 			$arrParam = array(
@@ -70,14 +72,28 @@ class Admin extends CI_Controller {
 				"value" => $log_user
 			);
 			$result_user = $this->admin_model->verifyUser($arrParam);
-
-//echo $this->db->last_query(); exit;
 			
-			if ($result_user) {
+			//verificar si ya existe el correo
+			$arrParam = array(
+				"idUser" => $idUser,
+				"column" => "email",
+				"value" => $email
+			);
+			$result_email = $this->admin_model->verifyUser($arrParam);
+
+			if ($result_user || $result_email) {
 				$data["result"] = "error";
 				if($result_user){
 					$data["mensaje"] = " Error. El nombre de usuario ya existe.";
 					$this->session->set_flashdata('retornoError', '<strong>Error!!!</strong> El nombre de usuario ya existe.');
+				}
+				if($result_email){
+					$data["mensaje"] = " Error. El correo ya existe.";
+					$this->session->set_flashdata('retornoError', '<strong>Error!!!</strong> El correo ya existe.');
+				}
+				if($result_user && $result_email){
+					$data["mensaje"] = " Error. El nombre de usuario y correo ya existen.";
+					$this->session->set_flashdata('retornoError', '<strong>Error!!!</strong> El nombre de usuario y correo ya existen.');
 				}
 			} else {
 			

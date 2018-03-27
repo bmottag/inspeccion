@@ -29,7 +29,6 @@
 		public function saveCliente() 
 		{
 				$idUser = $this->input->post('hddId');
-				$email = $this->input->post('email');
 				
 				$data = array(
 					'first_name' => $this->input->post('nombres'),
