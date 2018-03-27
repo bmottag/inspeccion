@@ -21,10 +21,7 @@
 								<th class="column-title">Nombre </th>
 								<th class="column-title">Correo</th>
 								<th class="column-title">No. Celular</th>
-								</th>
-								<th class="bulk-actions" colspan="7">
-								  <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
-								</th>
+								<th class="column-title">Editar</th>
 								</tr>
 							</thead>
 
@@ -37,6 +34,9 @@
 				echo "<td>" . $data['first_name'] . " " . $data['last_name'] . "</td>";
 				echo "<td>" . $data['email'] . "</td>";
 				echo "<td>" . $data['movil'] . "</td>";
+				echo "<td class='text-center'>";
+				echo "<a href='" . base_url("admin/add_cliente/" . $data['id_user']) . "' class='btn btn-info btn-xs'><i class='fa fa-pencil'></i> Editar </a>";
+				echo "</td>";
 				echo "</tr>";
 			endforeach 
 		?>
