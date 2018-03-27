@@ -3,7 +3,12 @@
 		<div class="col-md-12 col-sm-12 col-xs-12">
 			<div class="x_panel">
 				<div class="x_title">
-					<h2>Listado de Clientes</h2>
+					<h2>Listado de Clientes 
+						<small>
+							<a href="<?php echo base_url("admin/add_cliente"); ?>" class="btn btn-success btn-xs"><i class="fa fa-plus"></i> Adicionar </a>
+						</small>
+					</h2> 
+					
 					<ul class="nav navbar-right panel_toolbox">
 						<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
 						</li>
