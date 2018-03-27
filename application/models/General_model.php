@@ -63,6 +63,9 @@ class General_model extends CI_Model {
 		public function get_user_list($arrData) 
 		{
 			$this->db->where("state", 1);
+			if (array_key_exists("idUser", $arrData)) {
+				$this->db->where('id_user', $arrData["idUser"]);
+			}
 			if (array_key_exists("idRol", $arrData)) {
 				$this->db->where('fk_id_rol', $arrData["idRol"]);
 			}
