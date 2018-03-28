@@ -8,7 +8,33 @@ class Main extends CI_Controller {
         $this->load->model("main_model");
 		$this->load->helper('form');
     }
+
+	/**
+	 * Listado de inspecciones para un cliente
+     * @since 28/3/2018
+     * @author BMOTTAG
+	 */
+	public function inspeccion_cliente($idCliente, $idInspeccion = 'x')
+	{			
+		$this->load->model("general_model");
+		$data['information'] = FALSE;
 		
+		$arrParam = array("idUser" => $idCliente);
+		$data['userInfo'] = $this->general_model->get_user_list($arrParam);//info cliente
+		
+		$arrParam = array("idCliente" => $idCliente);
+		$data['information'] = $this->main_model->get_inspecciones($arrParam);//info inspecciones
+		
+		//si envio el id, entonces busco la informacion 
+		if ($idInspeccion != 'x') {
+			$arrParam = array("idInspeccion" => $idInspeccion);
+			$data['information'] = $this->main_model->get_inspecciones($arrParam);//info inspecciones
+		}
+
+		$data["view"] = 'inspecciones_cliente';
+		$this->load->view("layout", $data);
+	}
+	
 	/**
 	 * Form inspeccion
      * @since 27/3/2018
