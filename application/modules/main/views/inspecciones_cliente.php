@@ -18,9 +18,33 @@
 				</div>
 				<div class="x_content">
 				
-					<div class="alert alert-success alert-dismissible fade in" role="alert">
+					<div class="alert alert-warning alert-dismissible fade in" role="alert">
 						<strong>Info:</strong> A continuación encontrará el listado de inspecciones realizadas para el cliente.
 					</div>
+					
+<?php
+$retornoExito = $this->session->flashdata('retornoExito');
+if ($retornoExito) {
+    ?>
+	<div class="alert alert-success alert-dismissible fade in" role="alert">
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+		</button>
+		<strong>Ok!</strong> <?php echo $retornoExito ?>	
+	</div>
+    <?php
+}
+
+$retornoError = $this->session->flashdata('retornoError');
+if ($retornoError) {
+    ?>
+	<div class="alert alert-danger alert-dismissible fade in" role="alert">
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+		</button>
+		<strong>Error!</strong> <?php echo $retornoError ?>
+	</div>	
+    <?php
+}
+?> 
 
 					<div class="col-md-3 col-sm-3 col-xs-12 profile_left">
 					
@@ -58,8 +82,8 @@
 					echo "<td>" . $data['inspector'] . "</td>";
 					echo "<td>" . $data['observaciones'] . "</td>";
 					echo "<td class='text-center'>";
-					echo "<a href='" . base_url("admin/add_cliente/" . $data['id_inspeccion']) . "' class='btn btn-info btn-xs'><i class='fa fa-arrow-right'></i> Check In </a>";
-					echo "<a href='" . base_url("main/inspeccion_cliente/" . $data['id_inspeccion']) . "' class='btn btn-danger btn-xs'><i class='fa fa-arrow-left'></i> Check Out </a>";
+					echo "<a href='" . base_url("main/checkin/" . $data['fk_id_user_cliente'] . "/". $data['id_inspeccion']) . "' class='btn btn-info btn-xs'><i class='fa fa-arrow-right'></i> Check In </a>";
+					echo "<a href='" . base_url("main/checkout/" . $data['id_inspeccion']) . "' class='btn btn-danger btn-xs'><i class='fa fa-arrow-left'></i> Check Out </a>";
 					echo "</td>";
 					echo "</tr>";
 				endforeach;
