@@ -17,30 +17,6 @@
 					<div class="alert alert-success alert-dismissible fade in" role="alert">
 						<strong>Info:</strong> Formulario para adicionar y/o editar una inspección.
 					</div>
-				
-<?php
-$retornoExito = $this->session->flashdata('retornoExito');
-if ($retornoExito) {
-    ?>
-	<div class="alert alert-success alert-dismissible fade in" role="alert">
-		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
-		</button>
-		<strong>Ok!</strong> <?php echo $retornoExito ?>	
-	</div>
-    <?php
-}
-
-$retornoError = $this->session->flashdata('retornoError');
-if ($retornoError) {
-    ?>
-	<div class="alert alert-danger alert-dismissible fade in" role="alert">
-		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
-		</button>
-		<strong>Error!</strong> <?php echo $retornoError ?>
-	</div>	
-    <?php
-}
-?> 
 
 					<div class="col-md-3 col-sm-3 col-xs-12 profile_left">
 					
