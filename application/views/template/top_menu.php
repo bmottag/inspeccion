@@ -13,8 +13,6 @@
 			<span class=" fa fa-angle-down"></span>
 		  </a>
 		  <ul class="dropdown-menu dropdown-usermenu pull-right">
-			<li><a href="javascript:;"> Profile</a></li>
-			<li><a href="javascript:;">Help</a></li>
 			<li><a href="<?php echo base_url("menu/salir"); ?>"><i class="fa fa-sign-out pull-right"></i> Salir</a></li>
 		  </ul>
 		</li>
