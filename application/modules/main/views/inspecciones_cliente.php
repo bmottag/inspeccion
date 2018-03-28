@@ -19,7 +19,7 @@
 				<div class="x_content">
 				
 					<div class="alert alert-warning alert-dismissible fade in" role="alert">
-						<strong>Info:</strong> A continuación encontrará el listado de inspecciones realizadas para el cliente.
+						<strong>Info:</strong> Listado de inspecciones realizadas para el cliente, organizadas de la más reciente a las más antigua.
 					</div>
 					
 <?php
@@ -83,7 +83,7 @@ if ($retornoError) {
 					echo "<td>" . $data['observaciones'] . "</td>";
 					echo "<td class='text-center'>";
 					echo "<a href='" . base_url("main/checkin/" . $data['fk_id_user_cliente'] . "/". $data['id_inspeccion']) . "' class='btn btn-info btn-xs'><i class='fa fa-arrow-right'></i> Check In </a>";
-					echo "<a href='" . base_url("main/checkout/" . $data['id_inspeccion']) . "' class='btn btn-danger btn-xs'><i class='fa fa-arrow-left'></i> Check Out </a>";
+					echo "<a href='" . base_url("main/checkout/" . $data['fk_id_user_cliente'] . "/". $data['id_inspeccion']) . "' class='btn btn-danger btn-xs'><i class='fa fa-arrow-right'></i> Check Out </a>";					
 					echo "</td>";
 					echo "</tr>";
 				endforeach;

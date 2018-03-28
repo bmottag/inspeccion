@@ -17,6 +17,14 @@
 					$this->db->where('I.id_inspeccion', $arrData["idInspeccion"]);
 				}
 				
+				if (array_key_exists("fkIdInspeccion", $arrData)) {
+					$this->db->where('I.fk_id_inspeccion', $arrData["fkIdInspeccion"]);
+				}
+				
+				if (array_key_exists("tipoInspeccion", $arrData)) {
+					$this->db->where('I.tipo_inspeccion', $arrData["tipoInspeccion"]);
+				}
+				
 				if (array_key_exists("idCliente", $arrData)) {
 					$this->db->where('I.fk_id_user_cliente', $arrData["idCliente"]);
 				}
@@ -42,6 +50,8 @@
 		
 			$data = array(
 				'fk_id_user_cliente' => $this->input->post('hddIdUserCliente'),
+				'tipo_inspeccion' => $this->input->post('hddTipoInspeccion'),
+				'fk_id_inspeccion' => $this->input->post('hddFKIdInspeccion'),
 				'nevecon' => $this->input->post('nevecon'),
 				'televisor' => $this->input->post('televisor'),
 				'lavadora' => $this->input->post('lavadora'),
