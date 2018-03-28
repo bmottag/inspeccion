@@ -14,6 +14,10 @@
 				</div>
 				<div class="x_content">
 				
+					<div class="alert alert-success alert-dismissible fade in" role="alert">
+						<strong>Info:</strong> Formulario para adicionar y/o editar una inspección.
+					</div>
+				
 <?php
 $retornoExito = $this->session->flashdata('retornoExito');
 if ($retornoExito) {
@@ -43,11 +47,11 @@ if ($retornoError) {
 						<h4><?php echo $userInfo?$userInfo[0]["first_name"] . " " . $userInfo[0]["last_name"]:""; ?></h4>
 
 						<ul class="list-unstyled user_data">
-							<li><i class="fa fa-map-marker user-profile-icon"></i> <?php echo $userInfo?$userInfo[0]["movil"]:""; ?>
+							<li><i class="fa fa-phone user-profile-icon"></i> <?php echo $userInfo?$userInfo[0]["movil"]:""; ?>
 							</li>
 
 							<li>
-								<i class="fa fa-briefcase user-profile-icon"></i> <?php echo $userInfo?$userInfo[0]["email"]:""; ?>
+								<i class="fa fa-envelope user-profile-icon"></i> <?php echo $userInfo?$userInfo[0]["email"]:""; ?>
 							</li>
 						</ul>
 					 </div>
