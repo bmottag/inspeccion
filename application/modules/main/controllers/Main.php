@@ -22,7 +22,10 @@ class Main extends CI_Controller {
 		$arrParam = array("idUser" => $idCliente);
 		$data['userInfo'] = $this->general_model->get_user_list($arrParam);//info cliente
 		
-		$arrParam = array("idCliente" => $idCliente);
+		$arrParam = array(
+						"idCliente" => $idCliente,
+						"tipoInspeccion" => 1
+					);
 		$data['information'] = $this->main_model->get_inspecciones($arrParam);//info inspecciones
 		
 		//si envio el id, entonces busco la informacion 
@@ -54,7 +57,7 @@ class Main extends CI_Controller {
 			$data['information'] = $this->main_model->get_inspecciones($arrParam);//info inspecciones
 		}
 
-		$data["view"] = 'form_inspeccion';
+		$data["view"] = 'form_checkin';
 		$this->load->view("layout", $data);
 	}
 	
@@ -85,6 +88,35 @@ class Main extends CI_Controller {
 			
 			echo json_encode($data);
     }
+	
+	/**
+	 * Form inspeccion - checkout
+     * @since 28/3/2018
+     * @author BMOTTAG
+	 */
+	public function checkout($idCliente, $idInspeccion = 'x')
+	{			
+		$this->load->model("general_model");
+		
+		$data['llaveForanea'] = $idInspeccion;
+		
+		$arrParam = array("idUser" => $idCliente);
+		$data['userInfo'] = $this->general_model->get_user_list($arrParam);//info cliente
+
+		$arrParam = array("fkIdInspeccion" => $idInspeccion);//se busca por checkout
+		$data['information'] = $this->main_model->get_inspecciones($arrParam);//info inspecciones
+
+		$data['bandera'] = FALSE;
+		//si no hay informacion entonces consultamos la informacion del checkout
+		if(!$data['information']){
+			$arrParam = array("idInspeccion" => $idInspeccion);
+			$data['information'] = $this->main_model->get_inspecciones($arrParam);//info inspecciones
+			$data['bandera'] = TRUE;
+		}
+
+		$data["view"] = 'form_checkout';
+		$this->load->view("layout", $data);
+	}
 
 
 	
