@@ -15,7 +15,7 @@
 				<div class="x_content">
 				
 					<div class="alert alert-success alert-dismissible fade in" role="alert">
-						<strong>Info:</strong> Formulario para adicionar y/o editar una inspección de Check Out. Si no se ha realizdo el Check Out el formulario mostrará la información del Check In.
+						<strong>Info:</strong> Formulario para adicionar y/o editar un inventario de Check Out. Si no se ha realizdo el Check Out el formulario mostrará la información del Check In.
 					</div>
 
 					<div class="col-md-3 col-sm-3 col-xs-12 profile_left">

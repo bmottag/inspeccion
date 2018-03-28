@@ -5,7 +5,7 @@
 		<div class="col-md-12 col-sm-12 col-xs-12">
 			<div class="x_panel">
 				<div class="x_title">
-					<h2>Listado de inspecciones por cliente</h2>
+					<h2>Listado de inventarios por cliente</h2>
 					<ul class="nav navbar-right panel_toolbox">
 						<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
 						</li>
@@ -15,7 +15,7 @@
 				<div class="x_content">
 				
 					<div class="alert alert-warning alert-dismissible fade in" role="alert">
-						<strong>Info:</strong> Listado de inspecciones realizadas para el cliente, organizadas de la más reciente a las más antigua.
+						<strong>Info:</strong> Listado de inventarios realizadas para el cliente, organizadas de la más reciente a las más antigua.
 					</div>
 					
 <?php
@@ -55,7 +55,7 @@ if ($retornoError) {
 							</li>
 							
 							<li>
-								<a href="<?php echo base_url("main/checkin/" . $userInfo[0]["id_user"] ); ?>" class="btn btn-success btn-xs"><i class="fa fa-plus"></i> Nueva Inspección</a>
+								<a href="<?php echo base_url("main/checkin/" . $userInfo[0]["id_user"] ); ?>" class="btn btn-success btn-xs"><i class="fa fa-plus"></i> Nuevo Inventario</a>
 							</li>
 							
 						</ul>

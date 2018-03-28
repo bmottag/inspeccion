@@ -41,7 +41,7 @@
 				echo "<td>" . $data['movil'] . "</td>";
 				echo "<td class='text-center'>";
 				echo "<a href='" . base_url("admin/add_cliente/" . $data['id_user']) . "' class='btn btn-info btn-xs'><i class='fa fa-pencil'></i> Editar </a>";
-				echo "<a href='" . base_url("main/inspeccion_cliente/" . $data['id_user']) . "' class='btn btn-danger btn-xs'><i class='fa fa-pencil'></i> Inspecciones </a>";
+				echo "<a href='" . base_url("main/inspeccion_cliente/" . $data['id_user']) . "' class='btn btn-danger btn-xs'><i class='fa fa-pencil'></i> Inventario </a>";
 				echo "</td>";
 				echo "</tr>";
 			endforeach 

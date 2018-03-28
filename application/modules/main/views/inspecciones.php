@@ -5,7 +5,7 @@
 		<div class="col-md-12 col-sm-12 col-xs-12">
 			<div class="x_panel">
 				<div class="x_title">
-					<h2>Listado de inspecciones	</h2>
+					<h2>Listado de inventarios	</h2>
 					<ul class="nav navbar-right panel_toolbox">
 						<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
 						</li>
@@ -15,7 +15,7 @@
 				<div class="x_content">
 				
 					<div class="alert alert-warning alert-dismissible fade in" role="alert">
-						<strong>Info:</strong> Listado de inspecciones - Check In - Check Out, organizadas de la más reciente a las más antigua.
+						<strong>Info:</strong> Listado de inventarios - Check In - Check Out, organizadas del más reciente al más antiguo.
 					</div>
 					
 

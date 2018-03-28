@@ -31,7 +31,7 @@
 			  <li><a href="<?php echo base_url("admin/add_cliente"); ?>">Adicionar</a></li>
 			</ul>
 		  </li>
-		  <li><a><i class="fa fa-edit"></i> Inspecciones <span class="fa fa-chevron-down"></span></a>
+		  <li><a><i class="fa fa-edit"></i> Inventarios <span class="fa fa-chevron-down"></span></a>
 			<ul class="nav child_menu">
 			  <li><a href="<?php echo base_url("main"); ?>">Listado</a></li>
 
