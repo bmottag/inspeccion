@@ -5,7 +5,7 @@
 				<div class="x_title">
 					<h2>Listado de Clientes 
 						<small>
-							<a href="<?php echo base_url("admin/add_cliente"); ?>" class="btn btn-success btn-xs"><i class="fa fa-plus"></i> Adicionar </a>
+							<a href="<?php echo base_url("admin/add_cliente"); ?>" class="btn btn-success btn-xs"><i class="fa fa-plus"></i> Adicionar Cliente</a>
 						</small>
 					</h2> 
 					
@@ -20,7 +20,8 @@
 				<div class="x_content">
 
 					<div class="table-responsive">
-						<table class="table table-striped jambo_table bulk_action">
+						<table id="datatable" class="table table-striped jambo_table bulk_action">
+
 							<thead>
 								<tr class="headings">
 								<th class="column-title">Nombre </th>
@@ -31,8 +32,7 @@
 							</thead>
 
 							<tbody>
-					
-					
+										
 		<?php 
 			foreach ($info as $data):
 				echo "<tr>";
@@ -41,13 +41,11 @@
 				echo "<td>" . $data['movil'] . "</td>";
 				echo "<td class='text-center'>";
 				echo "<a href='" . base_url("admin/add_cliente/" . $data['id_user']) . "' class='btn btn-info btn-xs'><i class='fa fa-pencil'></i> Editar </a>";
-				echo "<a href='" . base_url("main/inspeccion/" . $data['id_user']) . "' class='btn btn-danger btn-xs'><i class='fa fa-pencil'></i> Nueva Inspección </a>";
+				echo "<a href='" . base_url("main/inspeccion_cliente/" . $data['id_user']) . "' class='btn btn-danger btn-xs'><i class='fa fa-pencil'></i> Inspecciones </a>";
 				echo "</td>";
 				echo "</tr>";
 			endforeach 
 		?>
-					
-
 
 							</tbody>
 						</table>
