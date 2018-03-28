@@ -70,10 +70,10 @@ $( document ).ready( function () {
 
 		},
 		highlight: function ( element, errorClass, validClass ) {
-			$( element ).parents( ".col-sm-3" ).addClass( "has-error" ).removeClass( "has-success" );
+			$( element ).parents( ".col-sm-9" ).addClass( "has-error" ).removeClass( "has-success" );
 		},
 		unhighlight: function (element, errorClass, validClass) {
-			$( element ).parents( ".col-sm-3" ).addClass( "has-success" ).removeClass( "has-error" );
+			$( element ).parents( ".col-sm-9" ).addClass( "has-success" ).removeClass( "has-error" );
 		},
 		submitHandler: function (form) {
 			return true;
@@ -94,7 +94,7 @@ $( document ).ready( function () {
 			
 				$.ajax({
 					type: "POST",	
-					url: base_url + "more/save_inspeccion",	
+					url: base_url + "main/save_inspeccion",	
 					data: $("#form").serialize(),
 					dataType: "json",
 					contentType: "application/x-www-form-urlencoded;charset=UTF-8",
@@ -122,7 +122,7 @@ $( document ).ready( function () {
 							$("#div_guardado").css("display", "inline");
 							$('#btnSubmit').removeAttr('disabled');
 
-							var url = base_url + "more/add_environmental/" + data.idRecord + "/" + data.idEnvironmental;
+							var url = base_url + "main/inspeccion/" + data.idRecord + "/" + data.idInspeccion;
 							$(location).attr("href", url);
 						}
 						else
@@ -144,7 +144,7 @@ $( document ).ready( function () {
 				});	
 		
 		}else{
-			alert("There are missing fields.");
+			alert("Los campos con * son obligatorios.");
 		}
 	});
 	
