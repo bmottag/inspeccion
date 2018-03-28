@@ -36,11 +36,11 @@ class Main extends CI_Controller {
 	}
 	
 	/**
-	 * Form inspeccion
+	 * Form inspeccion - checkin
      * @since 27/3/2018
      * @author BMOTTAG
 	 */
-	public function inspeccion($idCliente, $idInspeccion = 'x')
+	public function checkin($idCliente, $idInspeccion = 'x')
 	{			
 		$this->load->model("general_model");
 		$data['information'] = FALSE;
