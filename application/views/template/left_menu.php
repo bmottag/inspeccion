@@ -34,7 +34,6 @@
 		  <li><a><i class="fa fa-edit"></i> Inspecciones <span class="fa fa-chevron-down"></span></a>
 			<ul class="nav child_menu">
 			  <li><a href="form.html">Listado</a></li>
-			  <li><a href="form_advanced.html">Nueva inspección</a></li>
 
 			</ul>
 		  </li>

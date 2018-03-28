@@ -26,7 +26,7 @@
 								<th class="column-title">Nombre </th>
 								<th class="column-title">Correo</th>
 								<th class="column-title">No. Celular</th>
-								<th class="column-title">Editar</th>
+								<th class="column-title">Enlaces</th>
 								</tr>
 							</thead>
 
@@ -41,6 +41,7 @@
 				echo "<td>" . $data['movil'] . "</td>";
 				echo "<td class='text-center'>";
 				echo "<a href='" . base_url("admin/add_cliente/" . $data['id_user']) . "' class='btn btn-info btn-xs'><i class='fa fa-pencil'></i> Editar </a>";
+				echo "<a href='" . base_url("main/inspeccion/" . $data['id_user']) . "' class='btn btn-danger btn-xs'><i class='fa fa-pencil'></i> Nueva Inspección </a>";
 				echo "</td>";
 				echo "</tr>";
 			endforeach 
