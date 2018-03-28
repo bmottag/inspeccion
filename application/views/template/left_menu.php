@@ -25,7 +25,7 @@
 	  <div class="menu_section">
 		<h3>General</h3>
 		<ul class="nav side-menu">
-		  <li><a><i class="fa fa-home"></i> Clientes <span class="fa fa-chevron-down"></span></a>
+		  <li><a><i class="fa fa-users"></i> Clientes <span class="fa fa-chevron-down"></span></a>
 			<ul class="nav child_menu">
 			  <li><a href="<?php echo base_url("admin/cliente"); ?>">Listado</a></li>
 			  <li><a href="<?php echo base_url("admin/add_cliente"); ?>">Adicionar</a></li>
@@ -33,7 +33,7 @@
 		  </li>
 		  <li><a><i class="fa fa-edit"></i> Inspecciones <span class="fa fa-chevron-down"></span></a>
 			<ul class="nav child_menu">
-			  <li><a href="form.html">Listado</a></li>
+			  <li><a href="<?php echo base_url("main"); ?>">Listado</a></li>
 
 			</ul>
 		  </li>

@@ -5,9 +5,9 @@
 		<div class="col-md-12 col-sm-12 col-xs-12">
 			<div class="x_panel">
 				<div class="x_title">
-					<h2>Listado de inspecciones
+					<h2>Listado de inspecciones por cliente
 						<small>
-							<a href="<?php echo base_url("main/inspeccion/" . $userInfo[0]["id_user"] ); ?>" class="btn btn-success btn-xs"><i class="fa fa-plus"></i> Nueva Inspección</a>
+							<a href="<?php echo base_url("main/checkin/" . $userInfo[0]["id_user"] ); ?>" class="btn btn-success btn-xs"><i class="fa fa-plus"></i> Nueva Inspección</a>
 						</small>
 					</h2>
 					<ul class="nav navbar-right panel_toolbox">
@@ -83,7 +83,7 @@ if ($retornoError) {
 					echo "<td>" . $data['observaciones'] . "</td>";
 					echo "<td class='text-center'>";
 					echo "<a href='" . base_url("main/checkin/" . $data['fk_id_user_cliente'] . "/". $data['id_inspeccion']) . "' class='btn btn-info btn-xs'><i class='fa fa-arrow-right'></i> Check In </a>";
-					echo "<a href='" . base_url("main/checkout/" . $data['fk_id_user_cliente'] . "/". $data['id_inspeccion']) . "' class='btn btn-danger btn-xs'><i class='fa fa-arrow-right'></i> Check Out </a>";					
+					echo "<a href='" . base_url("main/checkout/" . $data['fk_id_user_cliente'] . "/". $data['id_inspeccion']) . "' class='btn btn-danger btn-xs'><i class='fa fa-arrow-left'></i> Check Out </a>";					
 					echo "</td>";
 					echo "</tr>";
 				endforeach;

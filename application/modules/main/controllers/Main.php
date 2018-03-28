@@ -10,6 +10,23 @@ class Main extends CI_Controller {
     }
 
 	/**
+	 * Listado de inspecciones
+     * @since 28/3/2018
+     * @author BMOTTAG
+	 */
+	public function index()
+	{			
+		$this->load->model("general_model");
+		$data['information'] = FALSE;
+		
+		$arrParam = array();
+		$data['information'] = $this->main_model->get_inspecciones($arrParam);//info inspecciones
+
+		$data["view"] = 'inspecciones';
+		$this->load->view("layout", $data);
+	}
+	
+	/**
 	 * Listado de inspecciones para un cliente
      * @since 28/3/2018
      * @author BMOTTAG
@@ -117,6 +134,8 @@ class Main extends CI_Controller {
 		$data["view"] = 'form_checkout';
 		$this->load->view("layout", $data);
 	}
+	
+
 
 
 	
