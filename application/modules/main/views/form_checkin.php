@@ -5,7 +5,7 @@
 		<div class="col-md-12 col-sm-12 col-xs-12">
 			<div class="x_panel">
 				<div class="x_title">
-					<h2>Adicionar / Editar Inspección</h2>
+					<h2>CHECK IN</h2>
 					<ul class="nav navbar-right panel_toolbox">
 						<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
 						</li>
@@ -15,7 +15,7 @@
 				<div class="x_content">
 				
 					<div class="alert alert-success alert-dismissible fade in" role="alert">
-						<strong>Info:</strong> Formulario para adicionar y/o editar una inspección.
+						<strong>Info:</strong> Formulario para adicionar y/o editar una inspección de Check In.
 					</div>
 
 					<div class="col-md-3 col-sm-3 col-xs-12 profile_left">
@@ -37,6 +37,8 @@
 					<form id="form" data-parsley-validate class="form-horizontal form-label-left">
 						<input type="hidden" id="hddIdUserCliente" name="hddIdUserCliente" value="<?php echo $userInfo?$userInfo[0]["id_user"]:""; ?>"/>
 						<input type="hidden" id="hddIdInspeccion" name="hddIdInspeccion" value="<?php echo $information?$information[0]["id_inspeccion"]:""; ?>"/>
+						<input type="hidden" id="hddTipoInspeccion" name="hddTipoInspeccion" value="1"/>
+						<input type="hidden" id="hddFKIdInspeccion" name="hddFKIdInspeccion" value=""/>
 					
 						<table class="table table-striped projects">
 							<thead>
