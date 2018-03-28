@@ -9,7 +9,7 @@
 		 */
 		public function get_inspecciones($arrData) 
 		{		
-				$this->db->select();
+				$this->db->select("I.*, CONCAT(U.first_name, ' ', U.last_name) cliente, CONCAT(W.first_name, ' ', W.last_name) inspector");
 				$this->db->join('user U', 'U.id_user = I.fk_id_user_cliente', 'INNER');
 				$this->db->join('user W', 'W.id_user = I.fk_id_user_inspector', 'INNER');
 				
@@ -17,7 +17,10 @@
 					$this->db->where('I.id_inspeccion', $arrData["idInspeccion"]);
 				}
 				
-
+				if (array_key_exists("idCliente", $arrData)) {
+					$this->db->where('I.fk_id_user_cliente', $arrData["idCliente"]);
+				}
+				
 				$this->db->order_by('I.id_inspeccion', 'desc');
 				$query = $this->db->get('inspeccion I');
 
