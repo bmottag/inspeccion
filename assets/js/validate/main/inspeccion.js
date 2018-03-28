@@ -122,7 +122,7 @@ $( document ).ready( function () {
 							$("#div_guardado").css("display", "inline");
 							$('#btnSubmit').removeAttr('disabled');
 
-							var url = base_url + "main/inspeccion/" + data.idRecord + "/" + data.idInspeccion;
+							var url = base_url + "main/inspeccion_cliente/" + data.idRecord;
 							$(location).attr("href", url);
 						}
 						else
