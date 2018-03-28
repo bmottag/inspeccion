@@ -5,11 +5,7 @@
 		<div class="col-md-12 col-sm-12 col-xs-12">
 			<div class="x_panel">
 				<div class="x_title">
-					<h2>Listado de inspecciones por cliente
-						<small>
-							<a href="<?php echo base_url("main/checkin/" . $userInfo[0]["id_user"] ); ?>" class="btn btn-success btn-xs"><i class="fa fa-plus"></i> Nueva Inspección</a>
-						</small>
-					</h2>
+					<h2>Listado de inspecciones por cliente</h2>
 					<ul class="nav navbar-right panel_toolbox">
 						<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
 						</li>
@@ -57,6 +53,11 @@ if ($retornoError) {
 							<li>
 								<i class="fa fa-envelope user-profile-icon"></i> <?php echo $userInfo?$userInfo[0]["email"]:""; ?>
 							</li>
+							
+							<li>
+								<a href="<?php echo base_url("main/checkin/" . $userInfo[0]["id_user"] ); ?>" class="btn btn-success btn-xs"><i class="fa fa-plus"></i> Nueva Inspección</a>
+							</li>
+							
 						</ul>
 					 </div>
 
