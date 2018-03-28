@@ -55,8 +55,8 @@ if ($retornoError) {
 					<div class="col-md-9 col-sm-9 col-xs-12">
 
 					<form id="form" data-parsley-validate class="form-horizontal form-label-left">
-						<input type="hidden" id="hddIdUser" name="hddIdUser" value="<?php echo $userInfo?$userInfo[0]["id_user"]:""; ?>"/>
-						<input type="hidden" id="hddIdInspeccion" name="hddIdInspeccion" value="<?php echo $userInfo?$userInfo[0]["id_user"]:""; ?>"/>
+						<input type="hidden" id="hddIdUserCliente" name="hddIdUserCliente" value="<?php echo $userInfo?$userInfo[0]["id_user"]:""; ?>"/>
+						<input type="hidden" id="hddIdInspeccion" name="hddIdInspeccion" value="<?php echo $information?$information[0]["id_inspeccion"]:""; ?>"/>
 					
 						<table class="table table-striped projects">
 							<thead>
@@ -1014,6 +1014,14 @@ if ($retornoError) {
 								
 							</tbody>
 						</table>
+						
+
+						<div class="form-group">
+							<label for="observaciones" class="control-label col-md-3 col-sm-3 col-xs-12">Observaciones</label>
+							<div class="col-md-6 col-sm-6 col-xs-12">
+								<textarea id="observaciones" name="observaciones" placeholder="Observaciones"  class="form-control" rows="3"><?php echo $information?$information[0]["observaciones"]:""; ?></textarea>
+							</div>
+						</div>
 
 						<div class="ln_solid"></div>
 						<div class="form-group">
