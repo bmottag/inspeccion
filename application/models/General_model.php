@@ -62,15 +62,18 @@ class General_model extends CI_Model {
 		 */
 		public function get_user_list($arrData) 
 		{
-			$this->db->where("state", 1);
 			if (array_key_exists("idUser", $arrData)) {
-				$this->db->where('id_user', $arrData["idUser"]);
+				$this->db->where('U.id_user', $arrData["idUser"]);
 			}
 			if (array_key_exists("idRol", $arrData)) {
-				$this->db->where('fk_id_rol', $arrData["idRol"]);
+				$this->db->where('U.fk_id_rol', $arrData["idRol"]);
 			}
-			$this->db->order_by("first_name, last_name", "ASC");
-			$query = $this->db->get("user");
+			if (array_key_exists("state", $arrData)) {
+				$this->db->where('U.state', $arrData["state"]);
+			}
+			$this->db->join('param_rol R', 'R.id_rol = U.fk_id_rol', 'INNER');
+			$this->db->order_by("U.first_name, U.last_name", "ASC");
+			$query = $this->db->get("user U");
 
 			if ($query->num_rows() >= 1) {
 				return $query->result_array();

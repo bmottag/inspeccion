@@ -35,7 +35,7 @@
 					'last_name' => $this->input->post('apellidos'),
 					'log_user' => $this->input->post('usuario'),
 					'email' => $this->input->post('email'),
-					'movil' => $this->input->post('celular'),
+					'movil' => $this->input->post('celular')
 				);	
 
 				//revisar si es para adicionar o editar
@@ -58,6 +58,41 @@
 				}
 		}
 		
+		/**
+		 * Add/Edit USUARIO
+		 * @since 29/3/2018
+		 */
+		public function saveUsuario() 
+		{
+				$idUser = $this->input->post('hddId');
+				
+				$data = array(
+					'first_name' => $this->input->post('nombres'),
+					'last_name' => $this->input->post('apellidos'),
+					'log_user' => $this->input->post('usuario'),
+					'email' => $this->input->post('email'),
+					'movil' => $this->input->post('celular'),
+					'fk_id_rol' => $this->input->post('rol'),
+					'state' => $this->input->post('state')
+				);	
+
+				//revisar si es para adicionar o editar
+				if ($idUser == '') {
+					$data['birthdate'] = date("Y-m-d");
+					$data['password'] = 'e10adc3949ba59abbe56e057f20f883e';//123456
+					$data['address'] = '';
+					$query = $this->db->insert('user', $data);
+					$idUser = $this->db->insert_id();
+				} else {
+					$this->db->where('id_user', $idUser);
+					$query = $this->db->update('user', $data);
+				}
+				if ($query) {
+					return $idUser;
+				} else {
+					return false;
+				}
+		}		
 		
 		
 		
