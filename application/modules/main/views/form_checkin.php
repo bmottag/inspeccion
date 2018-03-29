@@ -29,7 +29,19 @@
 							<li>
 								<i class="fa fa-envelope user-profile-icon"></i> <?php echo $userInfo?$userInfo[0]["email"]:""; ?>
 							</li>
+
+<?php if($information){ //si hay informacion entonces mostramos boton para la firma ?>
+							<li><br>
+								<a href="<?php echo base_url("main/add_signature/checkin/" . $information[0]["id_inspeccion"] . "/". $userInfo[0]["id_user"] ); ?>" class="btn btn-info btn-block"><i class="fa fa-edit"></i> Firma del cliente</a>
+							</li>
+<?php } ?>
+							
 						</ul>
+						
+<?php if($information && $information[0]["firma"]){ //si hay firma la mostramos ?>
+<img src="<?php echo base_url($information[0]["firma"]); ?>" class="img-rounded" alt="Firma cliente" width="224" height="156" />
+<?php } ?>
+				
 					 </div>
 
 					<div class="col-md-9 col-sm-9 col-xs-12">
