@@ -132,7 +132,7 @@ class Admin extends CI_Controller {
      * @since 29/3/2018
      * @author BMOTTAG
 	 */
-	public function update_usuario($idCliente = 'x')
+	public function update_usuario($idUser = 'x')
 	{			
 		$this->load->model("general_model");
 		$data['information'] = FALSE;
@@ -146,8 +146,8 @@ class Admin extends CI_Controller {
 		$data['roles'] = $this->general_model->get_basic_search($arrParam);
 
 		//si envio el id, entonces busco la informacion 
-		if ($idCliente != 'x') {
-			$arrParam = array("idUser" => $idCliente);
+		if ($idUser != 'x') {
+			$arrParam = array("idUser" => $idUser);
 			$data['information'] = $this->general_model->get_user_list($arrParam);//info cliente
 		}
 
@@ -221,6 +221,60 @@ class Admin extends CI_Controller {
 
 			echo json_encode($data);
     }
+	
+	/**
+	 * Change password
+     * @since 29/3/2018
+     * @author BMOTTAG
+	 */
+	public function change_password($idUser)
+	{
+			if (empty($idUser)) {
+				show_error('ERROR!!! - You are in the wrong place. The ID USER is missing.');
+			}
+			
+			$this->load->model("general_model");
+			$arrParam = array("idUser" => $idUser);
+			$data['information'] = $this->general_model->get_user_list($arrParam);//info cliente
+		
+			$data["view"] = "form_password";
+			$this->load->view("layout", $data);
+	}
+	
+	/**
+	 * Update user´s password
+	 */
+	public function update_password()
+	{
+			$data = array();			
+			
+			$newPassword = $this->input->post("inputPassword");
+			$confirm = $this->input->post("inputConfirm");
+			$passwd = str_replace(array("<",">","[","]","*","^","-","'","="),"",$newPassword); 
+			
+			$data['linkBack'] = "admin/usuarios";
+			$data['titulo'] = "<i class='fa fa-unlock fa-fw'></i>CAMBIO DE CONTRASEÑA";
+			
+			if($newPassword == $confirm)
+			{					
+					if ($this->admin_model->updatePassword()) {
+						$data["msj"] = "Se actualizó la contraseña.";
+						$data["msj"] .= "<br><strong>Usuario: </strong>" . $this->input->post("hddUser");
+						$data["msj"] .= "<br><strong>Contraseña: </strong>" . $passwd;
+						$data["clase"] = "alert-success";
+					}else{
+						$data["msj"] = "<strong>Error!!!</strong> Ask for help.";
+						$data["clase"] = "alert-danger";
+					}
+			}else{
+				//definir mensaje de error
+				echo "pailas no son iguales";
+			}
+						
+			$data["view"] = "template/answer";
+			$this->load->view("layout", $data);
+	}
+
 
 
 	
