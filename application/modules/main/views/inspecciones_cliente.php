@@ -54,8 +54,8 @@ if ($retornoError) {
 								<i class="fa fa-envelope user-profile-icon"></i> <?php echo $userInfo?$userInfo[0]["email"]:""; ?>
 							</li>
 							
-							<li>
-								<a href="<?php echo base_url("main/checkin/" . $userInfo[0]["id_user"] ); ?>" class="btn btn-success btn-xs"><i class="fa fa-plus"></i> Nuevo Inventario</a>
+							<li><br>
+								<a href="<?php echo base_url("main/checkin/" . $userInfo[0]["id_user"] ); ?>" class="btn btn-success btn-block"><i class="fa fa-plus"></i> Nuevo Inventario</a>
 							</li>
 							
 						</ul>
