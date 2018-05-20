@@ -23,6 +23,12 @@
 			<li><a href="<?php echo base_url("admin/usuarios"); ?>"><i class="fa fa-users pull-right"></i> Usuarios</a></li>
 		  </ul>
 		</li>
+		
+		<li class="">
+		  <a href="<?php echo base_url("apt"); ?>" class="user-profile" aria-expanded="false">
+			<i class="fa fa-home"></i> Inicio
+		  </a>
+		</li>
 
 	  </ul>
 	</nav>
