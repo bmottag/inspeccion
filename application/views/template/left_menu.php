@@ -25,6 +25,7 @@
 	  <div class="menu_section">
 		<h3>General</h3>
 		<ul class="nav side-menu">
+			<li><a href="<?php echo base_url("reserva/calendario"); ?>"><i class="fa fa-calendar"></i> Calendario</a></li>
 		  <li><a><i class="fa fa-users"></i> Clientes <span class="fa fa-chevron-down"></span></a>
 			<ul class="nav child_menu">
 			  <li><a href="<?php echo base_url("admin/cliente"); ?>">Listado</a></li>
