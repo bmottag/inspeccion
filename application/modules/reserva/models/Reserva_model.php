@@ -33,42 +33,37 @@
 		}		
 		
 		/**
-		 * Add/Edit Solicitud
-		 * @since 1/4/2018
+		 * Add/Edit Reserva
+		 * @since 20/5/2018
 		 */
-		public function saveSolicitud() 
+		public function saveReserva() 
 		{
-			$idUser = $this->session->userdata("id");
-			$idSolicitud = $this->input->post('hddIdInspeccion');
+			$idReserva = $this->input->post('hddIdReserva');
 		
 			$data = array(
-				'fecha_apartado' => $this->input->post('hddFecha'),
-				'numero_computadores' => $this->input->post('numero_computadores'),
-				'fk_id_hora_inicial' => $this->input->post('hora_inicio'),
-				'fk_id_hora_final' => $this->input->post('hora_final'),
-				'numero_items' => $this->input->post('numero_items'),
-				'fk_codigo_examen' => $this->input->post('prueba'),
-				'fk_id_prueba' => $this->input->post('grupo_items'),
-				'cual_prueba' => $this->input->post('cual_prueba'),
-				'cual' => $this->input->post('cual'),
-				'fk_id_tipificacion' => $this->input->post('tipificacion'),
-				'estado_solicitud' => 1
+				'date_checkin' => $this->input->post('start_date'),
+				'date_checkout' => $this->input->post('finish_date'),
+				'fk_id_hora_checkin' => $this->input->post('hora_inicio'),
+				'fk_id_hora_checkout' => $this->input->post('hora_final'),
+				'numero_huespedes' => $this->input->post('numero_huespedes'),
+				'observaciones' => $this->input->post('observaciones')
 			);
 			
 			//revisar si es para adicionar o editar
-			if ($idSolicitud == '') {
-				$data['fk_id_user'] = $idUser;
-				$data['fecha_solicitud'] = date("Y-m-d G:i:s");			
+			if ($idReserva == '') {
+				$data['fk_id_user_cliente'] = $this->input->post('hddIdUserCliente');
+				$data['fk_id_user_inspector'] = $this->session->userdata("id");
+				$data['date_reserva'] = date("Y-m-d G:i:s");			
 
-				$query = $this->db->insert('solicitud', $data);	
-				$idSolicitud = $this->db->insert_id();				
+				$query = $this->db->insert('reserva', $data);	
+				$idReserva = $this->db->insert_id();				
 			} else {				
-				$this->db->where('id_solicitud', $idSolicitud);
-				$query = $this->db->update('solicitud', $data);
+				$this->db->where('id_reserva', $idReserva);
+				$query = $this->db->update('reserva', $data);
 			}
 			
 			if ($query) {
-				return $idSolicitud;
+				return $idReserva;
 			} else {
 				return false;
 			}
