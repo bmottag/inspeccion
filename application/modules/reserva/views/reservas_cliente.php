@@ -66,11 +66,11 @@ if ($retornoError) {
 						<table class="table table-striped projects">
 							<thead>
 								<tr>
-									<th style="width: 1%">#</th>
-									<th style="width: 15%">Fecha Checkin</th>
-									<th style="width: 15%">Fecha Checkout</th>
-									<th style="width: 13%">No. huéspedes</th>
-									<th style="width: 27%">Observaciones</th>
+									<th style="width: 2%">#</th>
+									<th style="width: 24%">Checkin</th>
+									<th style="width: 24%">Checkout</th>
+									<th style="width: 10%">Huéspedes</th>
+									<th style="width: 30%">Observaciones</th>
 									<th style="width: 10%">Enlaces</th>
 								</tr>
 							</thead>
@@ -80,9 +80,13 @@ if ($retornoError) {
 				foreach ($information as $data):
 					echo "<tr>";
 					echo "<td>" . $data['id_reserva'] . "</td>";
-					echo "<td>" . $data['date_checkin'] . "</td>";
-					echo "<td>" . $data['date_checkout'] . "</td>";
-					echo "<td>" . $data['numero_huespedes'] . "</td>";
+					echo "<td>";
+					echo date('l F j, Y', strtotime($data['date_checkin'])) . "</br>$data[hora_inicial]";
+					echo "</td>";
+					echo "<td>";
+					echo date('l F j, Y', strtotime($data['date_checkout'])) . "</br>$data[hora_final]";
+					echo "</td>";					
+					echo "<td class='text-center'>" . $data['numero_huespedes'] . "</td>";
 					echo "<td>" . $data['observaciones'] . "</td>";
 					echo "<td class='text-center'>";
 					echo "<a href='" . base_url("reserva/form_reserva/" . $data['fk_id_user_cliente'] . "/". $data['id_reserva']) . "' class='btn btn-info btn-xs'><i class='fa fa-arrow-right'></i> Editar </a>";			
