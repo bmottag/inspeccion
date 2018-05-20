@@ -71,4 +71,13 @@ class Login extends MX_Controller {
 		$this->login_model->redireccionarUsuario();
 	}
 	
+	public function calendarioWeb()
+	{
+		$this->load->model("general_model");
+		$arrParam = array();
+		$data['information'] = $this->general_model->get_reservas($arrParam);//info reservas
+		
+		$this->load->view("calendario_web", $data);
+	}
+	
 }

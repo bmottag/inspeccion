@@ -17,16 +17,7 @@ class Reserva extends CI_Controller {
 		$data["view"] = 'calendario';
 		$this->load->view("layout", $data);
 	}
-	
-	public function calendarioWeb()
-	{
-		$this->load->model("general_model");
-		$arrParam = array();
-		$data['information'] = $this->general_model->get_reservas($arrParam);//info reservas
 		
-		$this->load->view("calendario_web", $data);
-	}
-	
 	/**
 	 * Listado de reservas para un cliente
      * @since 19/5/2018
