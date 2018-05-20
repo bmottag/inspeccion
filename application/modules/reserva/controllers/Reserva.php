@@ -10,8 +10,9 @@ class Reserva extends CI_Controller {
 	
 	public function calendario()
 	{
+		$this->load->model("general_model");
 		$arrParam = array();
-		$data['information'] = $this->reserva_model->get_reservas($arrParam);//info reservas
+		$data['information'] = $this->general_model->get_reservas($arrParam);//info reservas
 		
 		$data["view"] = 'calendario';
 		$this->load->view("layout", $data);
@@ -19,8 +20,9 @@ class Reserva extends CI_Controller {
 	
 	public function calendarioWeb()
 	{
+		$this->load->model("general_model");
 		$arrParam = array();
-		$data['information'] = $this->reserva_model->get_reservas($arrParam);//info reservas
+		$data['information'] = $this->general_model->get_reservas($arrParam);//info reservas
 		
 		$this->load->view("calendario_web", $data);
 	}
@@ -44,7 +46,7 @@ class Reserva extends CI_Controller {
 		if ($idReserva != 'x') {
 			$arrParam = array("idReserva" => $idReserva);
 		}
-		$data['information'] = $this->reserva_model->get_reservas($arrParam);//info inspecciones
+		$data['information'] = $this->general_model->get_reservas($arrParam);//info reservas
 
 		$data["view"] = 'reservas_cliente';
 		$this->load->view("layout", $data);
@@ -73,7 +75,7 @@ class Reserva extends CI_Controller {
 		if ($idReserva != 'x') {
 			$arrParam = array("idReserva" => $idReserva);
 		}
-		$data['information'] = $this->reserva_model->get_reservas($arrParam);//info inspecciones
+		$data['information'] = $this->general_model->get_reservas($arrParam);//info reservas
 					
 		$data['view'] = 'form_reserva';
 		
